@@ -1331,7 +1331,7 @@ subroutine compute_forces(i,iamgasi,iamdusti,xpartveci,hi,hi1,hi21,hi41,gradhi,g
              vsigavi   = alphai*vsigi
           else
              vsigi     = max(vwavei - beta*projv,0.)
-             vsigavi   = max(alphai*vwavei - beta*projv,0.)
+             vsigavi   = max(alphai*vwavei - beta*alphai*projv,0.)
           endif
           if (vsigi > vsigmax) vsigmax = vsigi
 
@@ -1418,7 +1418,7 @@ subroutine compute_forces(i,iamgasi,iamdusti,xpartveci,hi,hi1,hi21,hi41,gradhi,g
                 vsigavj = alphaj*vsigj
              else
                 vsigj = max(vwavej - beta*projv,0.)
-                vsigavj = max(alphaj*vwavej - beta*projv,0.)
+                vsigavj = max(alphaj*vwavej - beta*alphaj*projv,0.)
              endif
              if (vsigj > vsigmax) vsigmax = vsigj
           else
